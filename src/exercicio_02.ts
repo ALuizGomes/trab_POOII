@@ -79,32 +79,32 @@ class Veiculos {
 const veiculos = new Veiculos('Renegade', 'Jeep', 2018, 1000, 10)
 console.log(veiculos)
 
-// try{
-//     veiculos.ano = 0
-//     console.log(veiculos.ano)
-// }catch(err){
-//     console.log(err.message)
-// }
+try{
+    veiculos.ano = 0
+    console.log(veiculos.ano)
+}catch(err:any){
+    console.log(err.message)
+}
 
-// try{
-//     veiculos.modelo = 'none'
-//     console.log(veiculos.modelo)
-// }catch(err){
-//     console.log(err.message)
-// }
+try{
+    veiculos.modelo = ''
+    console.log(veiculos.modelo)
+}catch(err:any){
+    console.log(err.message)
+}
 
-// try{
-//     veiculos.valorLocacao = 0
-//     console.log(veiculos.valorLocacao)
-// }catch(err){
-//     console.log(err.message)
-// }
+try{
+    veiculos.valorLocacao = 0
+    console.log(veiculos.valorLocacao)
+}catch(err:any){
+    console.log(err.message)
+}
 
-// try{
-//     veiculos.quantidadeDias = 0
-//     console.log(veiculos.quantidadeDias)
-// }catch(err){
-//     console.log(err.message)
-// }
+try{
+    veiculos.quantidadeDias = 0
+    console.log(veiculos.quantidadeDias)
+}catch(err:any){
+    console.log(err.message)
+}
 
 // console.log("Valor Total: ", veiculos.passeio())

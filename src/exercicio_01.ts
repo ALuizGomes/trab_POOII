@@ -62,17 +62,25 @@ class Pessoa {
 const pessoa = new Pessoa('André Gomes', 'Masculino', 25);
 console.log(pessoa)
 try {
-    pessoa.nome = "Jack"
+    pessoa.nome = ''
     console.log(pessoa.nome)
-} catch (err) {
-    // console.log(err.message)
+} catch (err:any) {
+    console.log(err.message)
 }
 
 try {
-    pessoa.sexo = "Masculino"
+    pessoa.sexo = ''
     console.log(pessoa.sexo)
-} catch (err) {
-    // console.log(err.message)
+} catch (err:any) {
+    console.log(err.message)
 }
 
-console.log(pessoa.receberIdade(18))
+try{
+    pessoa.idade = 0
+    console.log(pessoa.receberIdade(12))
+}catch (err:any){
+    console.log(err.message)
+}
+
+// pessoa.receberIdade(0)
+

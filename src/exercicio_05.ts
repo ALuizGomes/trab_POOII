@@ -87,7 +87,7 @@ class PessoaFisica extends Vendedores {
     
     set regiao(regiao: string){
         if(!PessoaFisica.REGIOES.includes(regiao)){
-            throw new Error("Regiao Invalida")
+            throw new Error("Regiao Inválida")
         }
         this._regiao = regiao
     }
@@ -147,7 +147,7 @@ class PessoaJuridica extends Vendedores {
     calComissao(){
         if(this.valorVenda < 5000){
             return this.valorVenda * 0.02
-        } else if (this.valorVenda >= 5000 && this.valorVenda <= 10000){
+        } else if (this.valorVenda >= 5000 && this.valorVenda < 10000){
             return this.valorVenda * 0.04
         } else {
             return this.valorVenda * 0.06
@@ -165,7 +165,7 @@ class PessoaJuridica extends Vendedores {
 
 const vendedores = new Vendedores('André Luiz Gomes', 2000, 10000)
 
-// console.log(vendedores)
+console.log(vendedores)
 
 // console.log("Desconto de 8% do salario:", vendedores.desconto())
 
@@ -192,33 +192,35 @@ const vendedores = new Vendedores('André Luiz Gomes', 2000, 10000)
 
 
 
-// let pessoaFisica = new PessoaFisica('Leonardo', 1000, 30000, 'sul');
+let pessoaFisica = new PessoaFisica('Leonardo', 1000, 30000, 'sul');
 
-// console.log(pessoaFisica)
+console.log(pessoaFisica)
 
-// try{
-//     pessoaFisica.regiao = 'sul'
-//     console.log(pessoaFisica.regiao)
-//     console.log('Salario total com comissao:', pessoaFisica.salarioTotal())
-// }catch(err){
-//     console.log(err.message)
-// }
+try{
+    pessoaFisica.regiao = 'sul'
+    console.log(pessoaFisica.regiao)
+    console.log('Salario total com comissao:', pessoaFisica.salarioTotal())
+}catch(err:any){
+    console.log(err.message)
+}
 
 
 
-// let pessoaJuridica = new PessoaJuridica('Ermanoteu', 3000, 1000, 'TE Games', 120);
+console.log("Desconto Pessoa Fisica:", pessoaFisica.desconto())
 
-// console.log(pessoaJuridica)
+const pessoaJuridica = new PessoaJuridica('Pessoa Qualquer', 3000, 10000, 'TE Games', 120);
 
-// try{
-//     pessoaJuridica.nomeEmpresa = ''
-//     pessoaJuridica.totalFuncionarios = 0
-//     pessoaJuridica.salario = 1000
-//     pessoaJuridica.valorVenda = 11000
-//     pessoaJuridica.totalFuncionarios = 130
-//     console.log(pessoaJuridica.salario)
-//     console.log(pessoaJuridica.totalFuncionarios)
-//     console.log('Salario total com comissao:', pessoaJuridica.totalSalario())
-// }catch(err){
-//     console.log(err.message)
-// }
+console.log(pessoaJuridica)
+
+console.log("Desconto Pessoa Juridica:", pessoaJuridica.desconto())
+
+try{
+    pessoaJuridica.nomeEmpresa = 'TE Games'
+    pessoaJuridica.totalFuncionarios = 5
+    pessoaJuridica.salario = 1000
+    pessoaJuridica.valorVenda = 11000
+    console.log(pessoaJuridica)
+    console.log('Salario total com comissao:', pessoaJuridica.totalSalario())
+}catch(err:any){
+    console.log(err.message)
+}

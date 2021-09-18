@@ -70,7 +70,7 @@ class PFisica extends Imposto{
     }
 
     impostoCalculo(){
-        var irf = this.rendaAnual*(this.rendaAnual < 20000 ? 0.15 : 0.25)
+        var irf = this.rendaAnual*(this.rendaAnual <= 20000 ? 0.15 : 0.25)
         var saudeDesc = this.gastosSaude*(this.gastosSaude != 0 ? 0.5 : 0)
         return irf - saudeDesc
     }
@@ -90,12 +90,12 @@ class PJuridica extends Imposto{
 
     set numeroFuncionarios(numeroFuncionarios: number){
         if(numeroFuncionarios <= 0){
-            throw new Error("Quantidade Invalida")
+            throw new Error("Quantidade Inválida")
         }
         this._numeroFuncionarios = numeroFuncionarios
     }
 
-    calculoImposto(): number {  
+    calculoImposto(): number{  
         if(this.numeroFuncionarios < 10){
             return this.rendaAnual * 0.16
         } else {
@@ -104,19 +104,21 @@ class PJuridica extends Imposto{
       }
 }
 
-const peFisica = new PFisica('André Luiz Gomes', 50000, 1000)
+const peFisica = new PFisica('André Luiz Gomes', 50000, 2000)
 console.log(peFisica)
 
-peFisica.gastosSaude = 500
-console.log('Imposto:', peFisica.impostoCalculo())
+console.log('Imposto: ', peFisica.impostoCalculo())
 
 
-const peJuridica = new PJuridica('Thallanar Entertainment', 10000, 5000)
+const peJuridica = new PJuridica('Thallanar Entertainment', 40000, 25)
 console.log(peJuridica)
 
-// try {
-//     peJuridica.numeroFuncionarios = 0
-//     console.log('Imposto:', peJuridica.calculoImposto())
-// } catch (err) {
-//     console.log(err.message)
-// }
+
+try{
+    peJuridica.nome = 'Thallanar Entertainment'
+    peJuridica.rendaAnual = 400000
+    peJuridica.numeroFuncionarios = 25
+    console.log('Imposto: ', peJuridica.calculoImposto().toFixed(2))
+}catch(err:any){
+    console.log(err.message)
+}

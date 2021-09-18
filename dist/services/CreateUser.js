@@ -1,9 +1,6 @@
 "use strict";
-
 Object.defineProperty(exports, "__esModule", { value: true });
-
 exports.createUser = void 0;
-
 function createUser(_a) {
     var name = _a.name, email = _a.email, password = _a.password;
     var user = {
@@ -13,5 +10,4 @@ function createUser(_a) {
     };
     return user;
 }
-
 exports.createUser = createUser;

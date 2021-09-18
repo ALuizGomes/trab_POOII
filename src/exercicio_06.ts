@@ -22,4 +22,5 @@ endereco = {
     bairro: "Morada da Colina",
     cidade: "Volta Redonda"
 }
+
 console.log("Arquivos:", endereco)

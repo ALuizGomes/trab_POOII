@@ -47,7 +47,7 @@ class Fatura {
     }
 }
 
-const fatura = new Fatura(1, 'celular', 1, 2500)
+const fatura = new Fatura(1, 'celular', 2, 2500)
 console.log(fatura)
 
-console.log("Fatura:", fatura.valorFatura())
+console.log("Fatura: ", fatura.valorFatura())
